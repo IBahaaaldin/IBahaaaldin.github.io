@@ -732,29 +732,48 @@
           </div>
 
           <div class="contact-form">
-            <form
-              id="contactForm"
-              action="https://formspree.io/f/xanjobpa"
-              method="POST"
-            >
+            <form action="https://formspree.io/f/xanjobpa" method="POST">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                />
               </div>
 
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="_replyto"
+                  class="form-control"
+                  required
+                />
               </div>
 
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" class="form-control" required />
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                  required
+                />
               </div>
 
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" class="form-control" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  required
+                ></textarea>
               </div>
 
               <button type="submit" class="btn">Send Message</button>
@@ -802,7 +821,12 @@
         </p>
       </div>
     </footer>
-
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-blue-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
     <script>
       // Theme toggle functionality
       const themeToggle = document.getElementById("theme-toggle");
@@ -902,6 +926,25 @@
         element.style.opacity = 0;
         element.style.transform = "translateY(20px)";
         observer.observe(element);
+      });
+
+            // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
     </script>
   </body>
