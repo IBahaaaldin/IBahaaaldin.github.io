@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IBahaaaldin | Computer Science - AI Student</title>
+    <meta
+      name="description"
+      content="Portfolio of IBahaaaldin, a Computer Science - AI student at British University in Dubai passionate about AI solutions and system building."
+    />
+    <link rel="icon" href="/docs/assets/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/docs/css/Styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container container">
+        <a href="" class="logo">IBahaa<span>aldin</span></a>
+
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Résumé</a>
+          <a href="#github">GitHub</a>
+          <a href="#contact">Contact</a>
+
+          <div class="theme-toggle">
+            <span class="theme-icon"><i class="fas fa-sun"></i></span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="slider"></span>
+            </label>
+            <span class="theme-icon"><i class="fas fa-moon"></i></span>
+          </div>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title animate">
+              Hi, I'm
+              <span style="color: var(--color-primary)">IBahaaaldin</span>
+            </h1>
+            <h2 class="hero-subtitle animate delay-1">
+              Computer Science – AI Student
+            </h2>
+            <p class="hero-tagline animate delay-2">
+              Passionate about AI solutions, system building, and creating
+              efficient tools.
+            </p>
+            <div class="hero-buttons animate delay-3">
+              <a href="#projects" class="btn">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+          </div>
+          <div class="hero-image animate delay-4">
+            <img
+              src="/docs/assets/Image2.jpeg"
+              alt="IBahaaaldin's professional headshot"
+              width="300"
+              height="300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+            <div
+              class="relative w-64 h-64 rounded-full overflow-hidden border-4"
+              style="
+                background-color: white;
+                border-color: var(--color-primary);
+              "
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <img src="/docs/assets/Image.jpeg" />
+              </div>
+            </div>
+          </div>
+          <div class="md:w-2/3 md:pl-12" style="color: var(--color-text)">
+            <h3 class="text-2xl font-semibold mb-4">
+              I'm Bahaa Mohammed, a passionate developer
+            </h3>
+            <p class="text-lg mb-6" style="color: var(--color-muted)">
+              Currently a second-year Computer Science – AI student at the
+              British University in Dubai, based in the United Arab Emirates. I
+              specialize in creating efficient and user-friendly solutions for
+              academic and personal productivity.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div>
+                <p class="mb-2"><strong>Name:</strong> Bahaa Mohammed</p>
+                <p class="mb-2">
+                  <strong>Education:</strong> CS - AI, British University in
+                  Dubai
+                </p>
+                <p class="mb-2"><strong>Location:</strong> UAE, Dubai</p>
+              </div>
+              <div>
+                <p class="mb-2">
+                  <strong>Email:</strong> Bahaam.coding@gmail.com
+                </p>
+                <p class="mb-2">
+                  <strong>Interests:</strong> AI, Web Dev, Productivity Tools
+                </p>
+                <p class="mb-2"><strong>Freelance:</strong> Available</p>
+              </div>
+            </div>
+
+            <div class="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/in/bahaa-mohammed-371259369"
+                target="_blank"
+                class="w-12 h-12 rounded-full flex items-center justify-center"
+                style="background-color: var(--color-primary); color: white"
+              >
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+              <a
+                href="https://github.com/IBahaaaldin"
+                target="_blank"
+                class="w-12 h-12 rounded-full flex items-center justify-center"
+                style="background-color: var(--color-text); color: white"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/ibahaaaldin"
+                target="_blank"
+                class="w-12 h-12 rounded-full flex items-center justify-center"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    var(--color-accent),
+                    #ff0000
+                  );
+                  color: white;
+                "
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <p
+          class="text-center max-w-2xl mx-auto mb-16"
+          style="color: var(--color-muted)"
+        >
+          I've acquired these skills through academic studies, personal
+          projects, and hands-on experience.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Skill Card 1 -->
+          <div
+            class="p-8 rounded-xl text-center transition duration-300"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              style="background-color: var(--color-primary); opacity: (0.1)"
+            >
+              <i
+                class="fab fa-python text-4xl"
+                style="color: var(--secondry-primary)"
+              ></i>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3">Python</h3>
+            <p style="color: var(--color-muted)">
+              Experienced in Python for data analysis, AI applications, and
+              backend development.
+            </p>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div
+            class="p-8 rounded-xl text-center transition duration-300"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              style="background-color: var(--color-primary); opacity: (0.1)"
+            >
+              <i
+                class="fab fa-java text-4xl"
+                style="color: var(--secondry-primary)"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Java</h3>
+            <p style="color: var(--color-muted)">
+              Strong OOP foundations with Java, including Android app
+              development experience.
+            </p>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div
+            class="p-8 rounded-xl text-center transition duration-300"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              style="background-color: var(--color-primary); opacity: (0.1)"
+            >
+              <i
+                class="fas fa-code text-4xl"
+                style="color: var(--secondry-primary)"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+            <p style="color: var(--color-muted)">
+              Full-stack web development with HTML, CSS, JavaScript, and modern
+              frameworks.
+            </p>
+          </div>
+
+          <!-- Skill Card 4 -->
+          <div
+            class="p-8 rounded-xl text-center transition duration-300"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              style="background-color: var(--color-primary); opacity: (0.1)"
+            >
+              <i
+                class="fas fa-robot text-4xl"
+                style="color: var(--secondry-primary)"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">AI & Machine Learning</h3>
+            <p style="color: var(--color-muted)">
+              Fundamental knowledge in AI, machine learning algorithms, and data
+              science.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-16">
+          <h3 class="text-2xl font-semibold text-center mb-8">
+            Other Technologies
+          </h3>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i class="fab fa-html5 text-2xl mr-2" style="color: #e34f26"></i>
+              <span>HTML5</span>
+            </div>
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i
+                class="fab fa-css3-alt text-2xl mr-2"
+                style="color: #1572b6"
+              ></i>
+              <span>CSS3</span>
+            </div>
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i class="fab fa-js text-2xl mr-2" style="color: #f7df1e"></i>
+              <span>JavaScript</span>
+            </div>
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i class="fab fa-react text-2xl mr-2" style="color: purple"></i>
+              <span>React</span>
+            </div>
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i class="fas fa-database text-2xl mr-2" style="color: green"></i>
+              <span>SQL</span>
+            </div>
+            <div
+              class="px-6 py-3 rounded-full flex items-center"
+              style="
+                background-color: var(--color-card);
+                border: 1px solid var(--color-card-border);
+              "
+            >
+              <i class="fab fa-git-alt text-2xl mr-2" style="color: orange"></i>
+              <span>Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <p
+          class="text-center max-w-2xl mx-auto mb-16"
+          style="color: var(--color-muted)"
+        >
+          Here are some of my recent projects that showcase my skills and
+          creativity.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="rounded-xl overflow-hidden relative"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="h-48 flex items-center justify-center"
+              style="
+                background: linear-gradient(
+                  to right,
+                  var(--color-primary),
+                  var(--color-secondary)
+                );
+              "
+            >
+              <i class="fa-solid fa-calculator text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Ultimate GPA Calculator (Python Version)
+              </h3>
+              <p style="color: var(--color-muted); margin-bottom: 1rem">
+                A full-featured Python-based GPA management program for
+                students. Built with a simple command-line interface and a
+                Tkinter GUI for a better user experience.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >CLI</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >GUI</span
+                >
+              </div>
+              <a
+                href="https://github.com/IBahaaaldin/GPA-Calculator-python"
+                class="font-medium"
+                style="color: var(--color-primary)"
+                >View Project →</a
+              >
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="rounded-xl overflow-hidden relative"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="h-48 flex items-center justify-center"
+              style="background: linear-gradient(to right, #9c27b0, #e91e63)"
+            >
+              <i class="fa-solid fa-list text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">
+                Ultimate To-Do App (Java Version)
+              </h3>
+              <p style="color: var(--color-muted); margin-bottom: 1rem">
+                A full-featured Java-based task management program for users who
+                want a simple but powerful way to stay organized. Includes both
+                a command-line interface and a GUI built with Java Swing.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >Java</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >CLI</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >GUI</span
+                >
+              </div>
+              <a
+                href="https://github.com/IBahaaaldin/To-Do-App-java"
+                class="font-medium"
+                style="color: var(--color-primary)"
+                >View Project →</a
+              >
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="rounded-xl overflow-hidden relative"
+            style="
+              background-color: var(--color-card);
+              border: 1px solid var(--color-card-border);
+            "
+          >
+            <div
+              class="h-48 flex items-center justify-center"
+              style="background: linear-gradient(to right, #2196f3, #4caf50)"
+            >
+              <i class="fa-solid fa-window-maximize text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">Portfolio</h3>
+              <p style="color: var(--color-muted); margin-bottom: 1rem">
+                A web-based platform for organizing notes, resources, and
+                learning materials with AI tagging.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >HTML5</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >CSS3</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-sm"
+                  style="
+                    background-color: var(--color-primary);
+                    opacity: 0.7;
+                    color: white;
+                  "
+                  >JavaScript</span
+                >
+              </div>
+              <a
+                href="https://github.com/IBahaaaldin/Portfolio_Html"
+                class="font-medium"
+                style="color: var(--color-primary)"
+                >View Project →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="https://github.com/IBahaaaldin?tab=repositories" class="btn"
+            >View All Projects</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume" id="resume">
+      <div class="container">
+        <h2 class="section-title">My Résumé</h2>
+        <div class="resume-content">
+          <div class="resume-download">
+            <p>
+              Download my complete résumé for more details about my education,
+              skills, and experience.
+            </p>
+            <a href="#" class="btn" style="margin-top: 1.5rem">
+              <i class="fas fa-download" style="margin-right: 0.5rem"></i>
+              Download PDF
+            </a>
+          </div>
+          <div class="resume-preview">
+            <div class="resume-item">
+              <h3>Education</h3>
+              <p class="date">2023 - Present</p>
+              <p>
+                <strong>The British University in Dubai</strong> - BSc Computer
+                Science (Artificial Intelligence)
+              </p>
+              <ul>
+                <li>Current GPA: 3.7/4.0</li>
+                <li>
+                  Relevant coursework: Data Structures & Algorithms, Machine
+                  Learning, Artificial Intelligence, Database Systems
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h3>Technical Skills</h3>
+              <ul>
+                <li>
+                  <strong>Programming Languages:</strong> Python, Java,
+                  JavaScript, HTML5, CSS3
+                </li>
+                <li>
+                  <strong>Frameworks & Tools:</strong> GitHub, VS Code, IntelliJ
+                  IDEA
+                </li>
+                <li>
+                  <strong>Concepts:</strong> Object-Oriented Programming, Data
+                  Structures & Algorithms, AI Fundamentals, Machine Learning
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h3>Projects</h3>
+              <ul>
+                <li>
+                  Developed multiple task management applications in Java and
+                  Python
+                </li>
+                <li>
+                  Created a GPA calculator to help students track academic
+                  performance
+                </li>
+                <li>Contributed to open-source projects on GitHub</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Stats Section -->
+    <section class="github" id="github">
+      <div class="container">
+        <h2 class="section-title">GitHub Activity</h2>
+
+        <div class="github-stats">
+          <!-- Stats Cards Row -->
+          <div class="stats-grid">
+            <div class="github-stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-code-branch"></i>
+              </div>
+              <h3>Repositories</h3>
+              <p class="stat-number">10+</p>
+            </div>
+
+            <div class="github-stat-card">
+              <div class="stat-icon" style="color: var(--color-accent)">
+                <i class="fas fa-code-commit"></i>
+              </div>
+              <h3>Commits</h3>
+              <p class="stat-number">200+</p>
+            </div>
+
+            <div class="github-stat-card">
+              <div class="stat-icon" style="color: var(--color-accent)">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Stars</h3>
+              <p class="stat-number">15+</p>
+            </div>
+
+            <div class="github-stat-card">
+              <div class="stat-icon" style="color: var(--color-primary)">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h3>Contributions</h3>
+              <p class="stat-number">50+</p>
+            </div>
+          </div>
+
+          <!-- Contribution Graph -->
+          <div class="github-stat-card contribution-graph">
+            <img
+              src="https://ghchart.rshah.org/IBahaaaldin"
+              alt="IBahaaaldin's GitHub contributions"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p>
+              Feel free to reach out if you're looking for a collaborator, have
+              a question, or just want to connect!
+            </p>
+
+            <div class="contact-methods">
+              <a
+                href="https://www.linkedin.com/in/bahaa-mohammed-371259369"
+                target="_blank"
+                class="contact-method"
+              >
+                <i class="fab fa-linkedin contact-icon"></i>
+                <span>LinkedIn</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/ibahaaaldin"
+                target="_blank"
+                class="contact-method"
+              >
+                <i class="fab fa-instagram contact-icon"></i>
+                <span>Instagram</span>
+              </a>
+
+              <a href="mailto:bahaam.coding@gmail.com" class="contact-method">
+                <i class="fas fa-envelope contact-icon"></i>
+                <span>Email Me</span>
+              </a>
+
+              <a
+                href="https://github.com/IBahaaaldin"
+                target="_blank"
+                class="contact-method"
+              >
+                <i class="fab fa-github contact-icon"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/xanjobpa"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <h2 class="logo">IBahaa<span>aldin</span></h2>
+        <p>Computer Science – AI Student</p>
+
+        <div class="footer-links">
+          <a
+            href="https://www.linkedin.com/in/bahaa-mohammed-371259369"
+            target="_blank"
+            class="footer-link"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/ibahaaaldin"
+            target="_blank"
+            class="footer-link"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/IBahaaaldin"
+            target="_blank"
+            class="footer-link"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:bahaam.coding@gmail.com" class="footer-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+
+        <p class="copyright">
+          &copy; <span id="year"></span> IBahaaaldin. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem("theme") || "light";
+      if (savedTheme === "dark") {
+        html.classList.add("dark");
+        themeToggle.checked = true;
+      }
+
+      // Theme toggle event
+      themeToggle.addEventListener("change", () => {
+        if (themeToggle.checked) {
+          html.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          html.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      });
+
+      // Update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (window.innerWidth <= 768) {
+              navLinks.style.display = "none";
+            }
+          }
+        });
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form values
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          // Here you would typically send the form data to a server
+          // For this example, we'll just log it and show an alert
+          console.log({ name, email, subject, message });
+          alert("Thank you for your message! I will get back to you soon.");
+
+          // Reset form
+          contactForm.reset();
+        });
+      }
+
+      // Animation on scroll
+      const animateElements = document.querySelectorAll(".animate");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      animateElements.forEach((element) => {
+        element.style.opacity = 0;
+        element.style.transform = "translateY(20px)";
+        observer.observe(element);
+      });
+    </script>
+  </body>
+</html>
