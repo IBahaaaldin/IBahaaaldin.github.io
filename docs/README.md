@@ -1,7 +1,7 @@
 
 # 🌐 IBahaaaldin Portfolio Website
 
-![Portfolio Banner](docs/assets/portfolio_banner.jpg)
+![Portfolio Banner](docs/assets/Portfolio_banner.jpg)
 
 ![HTML](https://img.shields.io/badge/Built%20With-HTML%2FCSS%20%2B%20JS-blue)
 ![Status](https://img.shields.io/badge/Version-1.0-brightgreen)
