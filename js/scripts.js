@@ -215,41 +215,19 @@
     statusEl.className = 'form-status';
     form.after(statusEl);
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      const originalHTML = btn.innerHTML;
+      const data     = new FormData(form);
+      const name     = data.get('name')    || '';
+      const email    = data.get('email')   || '';
+      const subject  = data.get('subject') || '';
+      const message  = data.get('message') || '';
 
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp;Sending…';
-      statusEl.className = 'form-status';
-
-      try {
-        const data = Object.fromEntries(new FormData(form).entries());
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-        });
-
-        if (res.ok) {
-          form.reset();
-          statusEl.className = 'form-status success';
-          statusEl.textContent = currentLang === 'ar'
-            ? 'تم إرسال رسالتك! سأتواصل معك قريباً.'
-            : "Message sent! I'll get back to you soon.";
-        } else {
-          throw new Error('server');
-        }
-      } catch {
-        statusEl.className = 'form-status error';
-        statusEl.textContent = currentLang === 'ar'
-          ? 'حدث خطأ. يرجى المحاولة مجدداً أو التواصل عبر واتساب.'
-          : 'Something went wrong. Reach me via WhatsApp instead.';
-      } finally {
-        btn.disabled  = false;
-        btn.innerHTML = originalHTML;
-      }
+      const body = `From: ${name}\nEmail: ${email}\n\n${message}`;
+      window.location.href =
+        `mailto:bahaam.coding@gmail.com` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
     });
   }
 
