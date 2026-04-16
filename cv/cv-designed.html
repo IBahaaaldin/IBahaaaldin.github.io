@@ -175,6 +175,26 @@
       border-radius: 50%;
     }
 
+    /* Personal Details items */
+    .ai-tool {
+      font-size: 8.5pt;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 5px;
+    }
+    .ai-dot {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--brand);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
     /* Skill tags */
     .skill-tags {
       display: flex;
@@ -451,7 +471,8 @@
         +971 54 321 4323<br />
         <a href="mailto:Bahaam.coding@gmail.com">Bahaam.coding@gmail.com</a><br />
         <a href="https://ibahaaaldin.github.io" target="_blank" rel="noopener">ibahaaaldin.github.io</a><br />
-        <a href="https://linkedin.com/in/ibahaaaldin" target="_blank" rel="noopener">linkedin.com/in/ibahaaaldin</a>
+        <a href="https://linkedin.com/in/ibahaaaldin" target="_blank" rel="noopener">linkedin.com/in/ibahaaaldin</a><br>
+        <a href="https://github.com/IBahaaaldin">github.com/IBahaaaldin</a><br>
       </div>
     </header>
 
@@ -513,6 +534,15 @@
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Figma</span>
           </div>
+        </div>
+
+        <!-- Personal Details -->
+        <div class="sidebar-section">
+          <h2>Personal Details</h2>
+          <div class="ai-tool"><span class="ai-dot"></span>Nationality: Syrian</div>
+          <div class="ai-tool"><span class="ai-dot"></span>Visa: UAE Resident (Family)</div>
+          <div class="ai-tool"><span class="ai-dot"></span>DOB: 15 Sep 2005 · Age 20</div>
+          <div class="ai-tool"><span class="ai-dot"></span>Driving License: UAE Valid</div>
         </div>
 
         <!-- What I Build -->
@@ -607,6 +637,45 @@
           <div class="edu-detail">The British University in Dubai · Focus: AI, Machine Learning, Web Development, Database Systems</div>
         </div>
 
+        <!-- Academic Projects -->
+        <div class="main-section">
+          <h2>Academic Projects</h2>
+          <div class="job">
+            <div class="job-header">
+              <span class="job-title">School Management System</span>
+              <span class="job-date">BUiD Coursework</span>
+            </div>
+            <div class="job-company">British University in Dubai · Java, OOP, SQL, Swing GUI</div>
+            <ul>
+              <li>Multi-role academic management system (admin, teacher, student) with grade tracking, timetable, and reporting</li>
+              <li>OOP design patterns (inheritance, polymorphism); JDBC database integration; Java Swing GUI</li>
+            </ul>
+          </div>
+          <div class="job">
+            <div class="job-header">
+              <span class="job-title">Database Systems Design</span>
+              <span class="job-date">BUiD Coursework</span>
+            </div>
+            <div class="job-company">British University in Dubai · SQL, ER Modeling, Normalization</div>
+            <ul>
+              <li>Normalized relational schemas (3NF/BCNF), ER modeling, SQL query optimization, stored procedures</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications & Learning -->
+        <div class="main-section">
+          <h2>Certifications &amp; Learning</h2>
+          <div class="project-card" style="display:block;margin-bottom:8px;">
+            <div class="project-name">Professional Certifications — In Progress (2026)</div>
+            <div class="project-desc">Actively completing certifications in AI &amp; Machine Learning, Cloud Computing, and Data Science across major online platforms</div>
+          </div>
+          <div class="project-card" style="display:block;">
+            <div class="project-name">Applied AI Development</div>
+            <div class="project-desc">Daily professional use of Claude Code, ChatGPT, Gemini, GitHub Copilot, and Cursor — expertise built through 3 production platforms and 26+ client websites</div>
+          </div>
+        </div>
+
         <!-- Key Projects -->
         <div class="main-section">
           <h2>Key Projects</h2>
@@ -646,6 +715,10 @@
 
           </div>
         </div>
+
+        <!-- References -->
+        <h2>References</h2>
+        <p style="font-size:9.5pt;color:var(--muted);">Available upon request.</p>
 
       </main>
     </div><!-- /.cv-body -->
