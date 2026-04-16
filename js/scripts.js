@@ -100,15 +100,6 @@
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
 
-  /* ── Scrolled nav ────────────────────────────────────────── */
-  const nav = document.getElementById('nav');
-  function onScroll() {
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
-    updateActiveLink();
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
   /* ── Active nav link ─────────────────────────────────────── */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('#nav-menu a[href^="#"]');
@@ -122,6 +113,15 @@
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
   }
+
+  /* ── Scrolled nav ────────────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  function onScroll() {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveLink();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   /* ── Reveal on scroll ────────────────────────────────────── */
   const revealObs = new IntersectionObserver((entries) => {
