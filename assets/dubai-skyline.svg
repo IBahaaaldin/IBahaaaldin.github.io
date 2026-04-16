@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <!-- Cool blue city haze (ambient glow behind skyline) -->
+    <radialGradient id="gCity" cx="40%" cy="100%" r="60%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#1a5a8a" stop-opacity="0.5"/>
+      <stop offset="50%"  stop-color="#0a2040" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#060d1a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Warm amber street-level glow -->
+    <radialGradient id="gWarm" cx="40%" cy="100%" r="28%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#060d1a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Building silhouette gradient (dark navy, slight tint at top) -->
+    <linearGradient id="gBldg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#102240" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#070e1c" stop-opacity="1"/>
+    </linearGradient>
+    <!-- Soft glow filter for window lights -->
+    <filter id="fWin" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Strong glow filter for spire beacon -->
+    <filter id="fBeacon" x="-200%" y="-200%" width="600%" height="600%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- City ambient hazes -->
+  <rect width="1440" height="500" fill="url(#gCity)"/>
+  <rect width="1440" height="500" fill="url(#gWarm)"/>
+
+  <!-- ═══ MAIN SKYLINE SILHOUETTE ═══
+       Burj Khalifa peaks at ~y=0, centered ~x=565.
+       Buildings descend in both directions symmetrically with realistic variance.
+  -->
+  <path fill="url(#gBldg)" d="
+    M 0 500
+
+    L 0 370  L 22 370  L 22 352  L 42 352  L 42 365  L 65 365
+    L 65 342  L 88 342  L 88 356  L 108 356  L 108 330  L 130 330
+    L 130 342  L 150 342  L 150 318  L 170 318  L 170 305  L 192 305
+    L 192 316  L 210 316  L 210 292  L 230 292  L 230 278  L 250 278
+    L 250 264  L 268 264  L 268 275  L 286 275  L 286 252  L 304 252
+    L 304 238  L 322 238  L 322 224  L 340 224  L 340 238  L 358 238
+    L 358 212  L 376 212  L 376 196  L 393 196  L 393 178  L 410 178
+    L 410 196  L 426 196  L 426 170  L 443 170  L 443 152  L 460 152
+    L 460 138  L 476 138  L 476 122  L 490 122
+
+    L 490 108  L 504 108  L 504 92  L 516 92  L 516 78  L 526 78
+    L 526 65  L 535 65  L 535 52  L 542 52  L 542 40  L 548 40
+    L 548 28  L 553 28  L 553 18  L 557 18  L 557 10  L 560 10
+    L 560 5   L 562 5   L 562 2   L 564 2   L 564 0
+
+    L 566 0   L 566 2   L 568 2   L 568 5   L 570 5   L 570 10
+    L 573 10  L 573 18  L 577 18  L 577 28  L 582 28  L 582 40
+    L 588 40  L 588 52  L 595 52  L 595 65  L 604 65  L 604 78
+    L 614 78  L 614 92  L 626 92  L 626 108  L 640 108  L 640 122
+
+    L 656 122  L 656 138  L 672 138  L 672 152  L 690 152  L 690 165
+    L 708 165  L 708 150  L 726 150  L 726 168  L 745 168  L 745 185
+    L 764 185  L 764 200  L 784 200  L 784 218  L 805 218  L 805 235
+    L 826 235  L 826 250  L 848 250  L 848 265  L 872 265  L 872 280
+    L 898 280  L 898 295  L 924 295  L 924 310  L 952 310  L 952 322
+    L 980 322  L 980 335  L 1010 335  L 1010 348  L 1040 348  L 1040 360
+    L 1070 360  L 1070 372  L 1100 372  L 1100 382  L 1130 382  L 1130 372
+    L 1160 372  L 1160 385  L 1190 385  L 1190 375  L 1220 375  L 1220 388
+    L 1250 388  L 1250 398  L 1282 398  L 1282 408  L 1316 408  L 1316 418
+    L 1352 418  L 1352 426  L 1392 426  L 1392 432  L 1440 432
+
+    L 1440 500 Z
+  "/>
+
+  <!-- ═══ WINDOW LIGHTS ═══ -->
+  <g filter="url(#fWin)">
+    <!-- Blue-white windows: left cluster -->
+    <rect x="232" y="280" width="4" height="3" fill="#8dd0ff" opacity="0.28"/>
+    <rect x="252" y="266" width="4" height="3" fill="#8dd0ff" opacity="0.24"/>
+    <rect x="270" y="256" width="4" height="3" fill="#8dd0ff" opacity="0.3"/>
+    <rect x="288" y="244" width="4" height="3" fill="#8dd0ff" opacity="0.26"/>
+    <rect x="306" y="230" width="4" height="3" fill="#8dd0ff" opacity="0.28"/>
+    <rect x="324" y="216" width="4" height="3" fill="#8dd0ff" opacity="0.24"/>
+    <!-- Tall mid-left buildings -->
+    <rect x="378" y="194" width="4" height="3" fill="#8dd0ff" opacity="0.28"/>
+    <rect x="395" y="176" width="4" height="3" fill="#8dd0ff" opacity="0.26"/>
+    <rect x="428" y="168" width="4" height="3" fill="#8dd0ff" opacity="0.3"/>
+    <rect x="445" y="150" width="4" height="3" fill="#8dd0ff" opacity="0.28"/>
+    <rect x="462" y="136" width="4" height="3" fill="#8dd0ff" opacity="0.26"/>
+    <rect x="478" y="120" width="4" height="3" fill="#8dd0ff" opacity="0.3"/>
+    <!-- Approach to Burj -->
+    <rect x="492" y="106" width="4" height="3" fill="#a8dcff" opacity="0.32"/>
+    <rect x="506" y="90"  width="3" height="2" fill="#a8dcff" opacity="0.3"/>
+    <rect x="518" y="76"  width="3" height="2" fill="#bde6ff" opacity="0.35"/>
+    <rect x="528" y="63"  width="3" height="2" fill="#bde6ff" opacity="0.32"/>
+    <rect x="537" y="50"  width="3" height="2" fill="#ceedff" opacity="0.38"/>
+    <rect x="544" y="38"  width="3" height="2" fill="#ceedff" opacity="0.36"/>
+    <rect x="549" y="26"  width="3" height="2" fill="#ddf3ff" opacity="0.4"/>
+    <rect x="554" y="16"  width="3" height="2" fill="#ddf3ff" opacity="0.38"/>
+    <!-- Right side of Burj descending -->
+    <rect x="574" y="16"  width="3" height="2" fill="#ddf3ff" opacity="0.38"/>
+    <rect x="579" y="26"  width="3" height="2" fill="#ddf3ff" opacity="0.4"/>
+    <rect x="586" y="38"  width="3" height="2" fill="#ceedff" opacity="0.36"/>
+    <rect x="597" y="50"  width="3" height="2" fill="#ceedff" opacity="0.38"/>
+    <rect x="606" y="63"  width="3" height="2" fill="#bde6ff" opacity="0.32"/>
+    <rect x="616" y="76"  width="3" height="2" fill="#bde6ff" opacity="0.35"/>
+    <rect x="628" y="90"  width="3" height="2" fill="#a8dcff" opacity="0.3"/>
+    <rect x="642" y="106" width="4" height="3" fill="#a8dcff" opacity="0.32"/>
+    <!-- Right cluster -->
+    <rect x="658" y="120" width="4" height="3" fill="#8dd0ff" opacity="0.28"/>
+    <rect x="728" y="148" width="4" height="3" fill="#8dd0ff" opacity="0.26"/>
+    <rect x="748" y="166" width="4" height="3" fill="#8dd0ff" opacity="0.24"/>
+    <rect x="768" y="182" width="4" height="3" fill="#8dd0ff" opacity="0.22"/>
+    <rect x="788" y="200" width="4" height="3" fill="#8dd0ff" opacity="0.2"/>
+    <rect x="808" y="218" width="4" height="3" fill="#8dd0ff" opacity="0.2"/>
+    <!-- Warm amber windows (a few landmark buildings) -->
+    <rect x="360" y="214" width="4" height="3" fill="#ffb84d" opacity="0.2"/>
+    <rect x="344" y="226" width="4" height="3" fill="#ffb84d" opacity="0.18"/>
+    <rect x="805" y="220" width="4" height="3" fill="#ffb84d" opacity="0.18"/>
+    <rect x="826" y="238" width="4" height="3" fill="#ffb84d" opacity="0.16"/>
+  </g>
+
+  <!-- Burj Khalifa aviation beacon (glowing red/orange dot at tip) -->
+  <circle cx="565" cy="2" r="2.5" fill="#ff5020" opacity="0.75" filter="url(#fBeacon)"/>
+  <!-- Subtle Burj spire highlight line -->
+  <line x1="565" y1="2" x2="565" y2="20" stroke="#4db8ff" stroke-width="0.8" stroke-opacity="0.2"/>
+</svg>

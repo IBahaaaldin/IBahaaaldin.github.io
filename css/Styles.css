@@ -217,6 +217,22 @@ body.light #nav.scrolled { background: rgba(248,250,252,0.88); }
   padding-top: calc(var(--nh) + 48px);
   overflow: hidden; position: relative;
 }
+/* Dubai skyline background */
+.hero-skyline {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.72;
+  mask-image: linear-gradient(to top, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 55%, transparent 100%);
+}
+.hero-skyline img {
+  width: 100%;
+  display: block;
+}
+body.light .hero-skyline { opacity: 0.18; }
+
 .hero-orbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .orb {
   position: absolute; border-radius: 50%;
