@@ -1237,6 +1237,24 @@ body.light .p-back-name-dp { color: #111111; }
   color: var(--blue);
   border: 1px solid var(--border);
 }
+.ai-icon-pair {
+  width: 60px;
+  gap: 4px;
+}
+.ai-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+/* Dark mode: force logos white */
+body.dark .ai-logo {
+  filter: brightness(0) invert(1);
+}
+/* Light mode: show natural brand colors */
+body.light .ai-logo {
+  filter: none;
+}
 .ai-tool h4 {
   font-family: var(--fd);
   font-size: 15px;
