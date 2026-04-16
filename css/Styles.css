@@ -413,34 +413,65 @@ body.light .orb { opacity: 0.08; }
 .social-btn.wa:hover { color: var(--wa); border-color: var(--wa); }
 
 /* ================================================================
-   PLATFORMS — horizontal case-study cards
+   PLATFORMS — flip cards (one row, logo front / info back)
    ================================================================ */
 #platforms {}
-.platforms-grid { display: flex; flex-direction: column; gap: 14px; }
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
+/* Card shell — sets perspective */
 .p-card {
-  display: grid; grid-template-columns: 220px 1fr;
-  border-radius: var(--rl); border: 1px solid var(--border);
-  background: var(--surface); overflow: hidden;
-  transition: border-color .3s, box-shadow .3s;
+  height: 380px;
+  perspective: 1200px;
+  border-radius: var(--rl);
+  cursor: pointer;
 }
-.p-card:hover { border-color: var(--border-s); box-shadow: 0 20px 56px rgba(0,0,0,0.28); }
 
-.p-brand {
-  display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: flex-end;
-  gap: 5px; padding: 24px;
-  min-height: 172px; position: relative; overflow: hidden;
+/* The rotating inner element */
+.p-flip-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--rl);
 }
-.p-brand::after {
-  content: '';
+.p-card:hover .p-flip-inner { transform: rotateY(180deg); }
+
+/* Shared face styles */
+.p-flip-front,
+.p-flip-back {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.55) 100%);
+  border-radius: var(--rl);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
-.p-name { font-family: var(--fd); font-size: 20px; font-weight: 800; letter-spacing: -0.5px; position: relative; z-index: 1; }
+
+/* ── Front face — logo / brand only ── */
+.p-flip-front {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+}
+.p-front-glow {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.p-front-icon {
+  font-size: 44px; position: relative; z-index: 1;
+  filter: drop-shadow(0 0 20px currentColor);
+}
+.p-name {
+  font-family: var(--fd); font-size: 22px; font-weight: 800;
+  letter-spacing: -0.5px; position: relative; z-index: 1;
+  text-align: center; padding: 0 16px;
+}
 .p-tagline {
-  font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  font-family: var(--fm); font-size: 9.5px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(255,255,255,0.40);
   position: relative; z-index: 1;
 }
 .live-badge {
@@ -448,36 +479,62 @@ body.light .orb { opacity: 0.08; }
   padding: 3px 9px; border-radius: 100px;
   background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08);
   font-family: var(--fm); font-size: 10.5px; color: var(--green);
-  position: relative; z-index: 1; margin-top: 6px;
+  position: relative; z-index: 1;
+}
+.p-flip-hint {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  font-family: var(--fm); font-size: 9.5px; letter-spacing: 1px;
+  text-transform: uppercase; color: rgba(255,255,255,0.22);
+  white-space: nowrap; z-index: 1;
+  animation: hint-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
 }
 
-.p-body {
-  padding: 24px 28px; display: flex; flex-direction: column; gap: 14px;
-  border-left: 1px solid var(--border);
+/* ── Back face — full info ── */
+.p-flip-back {
+  transform: rotateY(180deg);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--p-accent, var(--blue));
+  padding: 24px 22px;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.p-desc { font-size: 13.5px; color: var(--t2); line-height: 1.75; }
+.p-back-header {
+  display: flex; align-items: center; gap: 10px;
+  flex-wrap: wrap;
+}
+.p-back-name {
+  font-family: var(--fd); font-size: 17px; font-weight: 800;
+  letter-spacing: -0.4px;
+}
+.p-desc { font-size: 12.5px; color: var(--t2); line-height: 1.7; }
 
-.p-metrics { display: flex; gap: 24px; flex-wrap: wrap; }
+.p-metrics { display: flex; gap: 20px; flex-wrap: wrap; }
 .p-metric { display: flex; flex-direction: column; gap: 2px; }
-.p-num { font-family: var(--fd); font-size: 17px; font-weight: 800; color: var(--t1); }
+.p-num { font-family: var(--fd); font-size: 16px; font-weight: 800; color: var(--t1); }
 .p-num.gold { color: var(--gold); }
-.p-lbl { font-family: var(--fm); font-size: 10px; color: var(--t3); letter-spacing: 0.5px; }
+.p-lbl { font-family: var(--fm); font-size: 9.5px; color: var(--t3); letter-spacing: 0.5px; }
 
 .stack-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
   padding: 3px 9px; border-radius: 5px;
   border: 1px solid var(--border); background: var(--surface-h);
-  font-family: var(--fm); font-size: 10.5px; color: var(--t3);
+  font-family: var(--fm); font-size: 10px; color: var(--t3);
 }
 .p-link {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 14px; border-radius: 8px;
-  border: 1px solid var(--border); background: transparent;
-  font-size: 12.5px; font-weight: 600; color: var(--blue);
+  border: 1px solid var(--p-accent, var(--border));
+  background: var(--p-accent-dim, transparent);
+  font-size: 12px; font-weight: 600;
+  color: var(--p-accent, var(--blue));
   align-self: flex-start; margin-top: auto;
-  transition: border-color .2s, background .2s;
+  transition: background .2s, border-color .2s;
 }
-.p-link:hover { border-color: var(--blue); background: var(--blue-dim); }
+.p-link:hover { background: var(--p-accent, var(--blue)); color: #fff; }
 
 /* ================================================================
    CLIENT WORK — icon-led accent cards
@@ -817,7 +874,8 @@ body.light .form-group textarea { background: #fff; }
 @media (max-width: 1024px) {
   :root { --sp: 72px; }
   .about-grid       { grid-template-columns: 1fr; gap: 40px; }
-  .p-card           { grid-template-columns: 180px 1fr; }
+  .platforms-grid   { gap: 14px; }
+  .p-card           { height: 340px; }
   .clients-featured { grid-template-columns: 1fr 1fr; }
   .cw-stats         { gap: 20px; padding: 24px; }
   .cw-divider       { display: none; }
@@ -854,9 +912,8 @@ body.light .form-group textarea { background: #fff; }
   .hero-actions    { flex-direction: column; }
   .hero-actions > * { width: 100%; justify-content: center; }
 
-  .p-card          { grid-template-columns: 1fr; }
-  .p-brand         { min-height: 120px; justify-content: flex-start; padding-top: 20px; }
-  .p-body          { border-left: none; border-top: 1px solid var(--border); }
+  .platforms-grid  { grid-template-columns: 1fr; }
+  .p-card          { height: 320px; }
   .clients-featured{ grid-template-columns: 1fr; }
   .cw-stats { flex-wrap: wrap; gap: 16px; }
   .cw-stat  { width: calc(50% - 8px); padding: 0; }
