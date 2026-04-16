@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bahaa Mohammed – CV</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      color: #000;
+      max-width: 820px;
+      margin: auto;
+      padding: 32px 40px;
+      line-height: 1.4;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* Header */
+    .header-name {
+      font-size: 20pt;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .header-title {
+      font-size: 12pt;
+      margin-bottom: 6px;
+    }
+
+    .header-contact {
+      font-size: 10pt;
+      margin-bottom: 4px;
+    }
+
+    /* Section headings */
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1.5px solid #000;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      padding-bottom: 2px;
+      page-break-after: avoid;
+    }
+
+    /* Job entries */
+    .job {
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .job-header .job-title {
+      font-weight: bold;
+    }
+
+    .job-header .job-date {
+      font-weight: normal;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* Education */
+    .edu-entry {
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .edu-header .edu-degree {
+      font-weight: bold;
+    }
+
+    .edu-header .edu-date {
+      font-weight: normal;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    .edu-institution {
+      margin-bottom: 2px;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+    }
+
+    /* Skills table-style list */
+    .skills-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skills-list li {
+      margin-bottom: 4px;
+    }
+
+    .skills-list li strong {
+      display: inline;
+    }
+
+    /* Projects */
+    .project-entry {
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 1.2cm 1.5cm;
+      }
+
+      body {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      .job {
+        page-break-inside: avoid;
+      }
+
+      .edu-entry {
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div class="header-name">Bahaa Mohammed</div>
+  <div class="header-title">Full-Stack Product Engineer &amp; AI-Augmented Developer</div>
+  <div class="header-contact">
+    Dubai, UAE &nbsp;|&nbsp;
+    +971 54 321 4323 &nbsp;|&nbsp;
+    <a href="mailto:Bahaam.coding@gmail.com">Bahaam.coding@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://ibahaaaldin.github.io">ibahaaaldin.github.io</a> &nbsp;|&nbsp;
+    <a href="https://linkedin.com/in/ibahaaaldin">linkedin.com/in/ibahaaaldin</a>
+  </div>
+
+  <!-- ===== PROFESSIONAL SUMMARY ===== -->
+  <h2>Professional Summary</h2>
+  <p>
+    Full-Stack Developer and AI-Augmented Engineer with 3+ years shipping production marketplaces, SaaS platforms, and web applications. Delivered systems serving 12,400+ users with 1.8M AED/month in transaction volume across 26+ client deployments. Proficient in Python, JavaScript, Next.js, React, Java, and SQL. Expert-level use of AI development tools: Claude, Claude Code, ChatGPT, Gemini, GitHub Copilot. Fluent English and Arabic. Seeking full-time and freelance opportunities in UAE and remotely.
+  </p>
+
+  <!-- ===== TECHNICAL SKILLS ===== -->
+  <h2>Technical Skills</h2>
+  <ul class="skills-list">
+    <li><strong>Languages:</strong> Python, JavaScript, Java, HTML5, CSS3, SQL, PHP</li>
+    <li><strong>Frameworks:</strong> React, Next.js, Node.js, Tailwind CSS, Java Swing, Tkinter</li>
+    <li><strong>Tools:</strong> Git, GitHub, Figma, REST APIs, JSON, Formspree</li>
+    <li><strong>AI Tools:</strong> Claude, Claude Code, ChatGPT, Gemini, Grok, GitHub Copilot, Cursor</li>
+    <li><strong>Specialties:</strong> Marketplace development, SaaS dashboards, multi-role systems, payment integration, bilingual EN/AR web apps, admin panels, UI/UX design</li>
+  </ul>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Full-Stack Developer &amp; IT Lead — Deluxe Lubricants International · Dubai, UAE</span>
+      <span class="job-date">Jan 2024 – Present</span>
+    </div>
+    <ul>
+      <li>Built and deployed <a href="https://deluxelube.com">deluxelube.com</a> — a production product platform serving customers across 50+ countries</li>
+      <li>Developed full admin CMS enabling product management, catalog control, and customer tracking</li>
+      <li>Improved website performance by 20%; resolved 50+ technical issues monthly</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Freelance Full-Stack Developer — Self-Employed · Dubai, UAE</span>
+      <span class="job-date">2022 – Present</span>
+    </div>
+    <ul>
+      <li>Designed and shipped CarzUAE (<a href="https://carzuae.app/en">carzuae.app</a>) — verified UAE vehicle marketplace with 12,400+ users, dealer subscription tiers, car history reports, and WhatsApp integration, built on Next.js/React</li>
+      <li>Built Designers Puzzle (<a href="https://designerspuzzle.com">designerspuzzle.com</a>) — multi-role design services marketplace with escrow payments, 2,347+ verified reviews (4.8/5 rating), and 1.8M AED/month transaction volume</li>
+      <li>Delivered 26+ production websites for UAE restaurants across Dubai and Sharjah — all bilingual (EN/AR) with admin dashboards and menu management systems</li>
+      <li>Leveraged AI tools (Claude Code, ChatGPT, GitHub Copilot) to accelerate delivery, shipping full platforms in 7–10 days</li>
+    </ul>
+  </div>
+
+  <!-- ===== EDUCATION ===== -->
+  <h2>Education</h2>
+
+  <div class="edu-entry">
+    <div class="edu-header">
+      <span class="edu-degree">B.Sc. Computer Science — Artificial Intelligence</span>
+      <span class="edu-date">Sep 2023 – 2027 (Expected)</span>
+    </div>
+    <div class="edu-institution">The British University in Dubai &nbsp;·&nbsp; GPA: 3.7/4.0</div>
+    <div>Focus: AI, Machine Learning, Web Development, Database Systems</div>
+  </div>
+
+  <!-- ===== KEY PROJECTS ===== -->
+  <h2>Key Projects</h2>
+  <ul>
+    <li class="project-entry"><strong>CarzUAE</strong> — UAE verified vehicle marketplace · 12,400+ users · <a href="https://carzuae.app/en">carzuae.app/en</a></li>
+    <li class="project-entry"><strong>Designers Puzzle</strong> — Design services marketplace · 1.8M AED/month · <a href="https://designerspuzzle.com">designerspuzzle.com</a></li>
+    <li class="project-entry"><strong>DeluxeLube Platform</strong> — Corporate product catalog · 50+ countries · <a href="https://deluxelube.com">deluxelube.com</a></li>
+    <li class="project-entry"><strong>26+ Restaurant Websites</strong> — Bilingual EN/AR, admin dashboards · e.g. <a href="https://hamasatburger.com">hamasatburger.com</a></li>
+  </ul>
+
+  <!-- ===== LANGUAGES ===== -->
+  <h2>Languages</h2>
+  <ul>
+    <li>Arabic — Native</li>
+    <li>English — Fluent (professional)</li>
+  </ul>
+
+</body>
+</html>
