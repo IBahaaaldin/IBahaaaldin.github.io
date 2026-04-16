@@ -775,9 +775,24 @@ body.light .orb { opacity: 0.08; }
    ================================================================ */
 #contact { background: var(--bg-2); }
 .contact-layout {
-  display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: auto auto;
+  column-gap: 72px;
+  row-gap: 24px;
 }
-.contact-left { display: flex; flex-direction: column; gap: 20px; }
+.contact-heading {
+  grid-column: 1; grid-row: 1;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.contact-body {
+  grid-column: 1; grid-row: 2;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.contact-form {
+  grid-column: 2; grid-row: 2;
+  align-self: start;
+}
 .contact-info { display: flex; flex-direction: column; gap: 10px; }
 .contact-item {
   display: flex; align-items: center; gap: 14px;
@@ -918,8 +933,9 @@ body.light .form-group textarea { background: #fff; }
 .p-front-logo-dp {
   filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255,255,255,0.45));
 }
-/* CarzUAE — black logo shows naturally on white/gold bg, gold glow */
+/* CarzUAE — slightly larger, gold glow */
 .p-front-logo-carz {
+  width: 140px; height: 140px;
   filter: drop-shadow(0 0 14px rgba(212,175,55,0.55));
 }
 
@@ -1071,7 +1087,8 @@ body.light .hire-ctas {
   .ai-layout        { grid-template-columns: 1fr; gap: 48px; }
   .hire-grid        { grid-template-columns: 1fr 1fr; }
   .resume-layout    { grid-template-columns: 1fr; gap: 40px; }
-  .contact-layout   { grid-template-columns: 1fr; gap: 40px; }
+  .contact-layout   { grid-template-columns: 1fr; }
+  .contact-form     { grid-column: 1; grid-row: 3; }
 }
 
 @media (max-width: 768px) {
