@@ -1246,13 +1246,28 @@ body.light .p-back-name-dp { color: #111111; }
   height: 20px;
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
 }
-/* Dark mode: force logos white */
-body.dark .ai-logo {
+.ai-logo-letter {
+  font-family: var(--fd);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-h);
+  border: 1px solid var(--border-s);
+  color: var(--t2);
+  object-fit: unset;
+}
+/* Dark mode: force SVG logos white */
+body.dark .ai-logo:not(.ai-logo-letter) {
   filter: brightness(0) invert(1);
 }
 /* Light mode: show natural brand colors */
-body.light .ai-logo {
+body.light .ai-logo:not(.ai-logo-letter) {
   filter: none;
 }
 .ai-tool h4 {
