@@ -935,7 +935,7 @@ body.light .form-group textarea { background: #fff; }
 }
 /* CarzUAE — slightly larger, gold glow */
 .p-front-logo-carz {
-  width: 140px; height: 140px;
+  width: 158px; height: 158px;
   filter: drop-shadow(0 0 14px rgba(212,175,55,0.55));
 }
 
