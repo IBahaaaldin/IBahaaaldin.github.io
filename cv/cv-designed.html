@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bahaa Mohammed — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --brand:  #00a2ff;
+      --text:   #1a1a1a;
+      --muted:  #666;
+      --light:  #f5f8ff;
+      --border: #e0e8f0;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 9.5pt;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.45;
+    }
+
+    /* ── Outer wrapper ── */
+    .cv-wrapper {
+      max-width: 210mm;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 297mm;
+    }
+
+    /* ════════════════════════
+       HEADER
+    ════════════════════════ */
+    .cv-header {
+      grid-column: 1 / -1;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 22px 28px 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .cv-header h1 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: 26pt;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.3px;
+    }
+
+    .header-title {
+      font-size: 11pt;
+      color: var(--brand);
+      font-weight: 500;
+      margin-top: 4px;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 8pt;
+      color: #ccc;
+      line-height: 1.7;
+      flex-shrink: 0;
+    }
+
+    .header-contact a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .header-contact a:hover {
+      color: var(--brand);
+    }
+
+    /* ── Body grid (sidebar + main) ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      align-items: start;
+    }
+
+    /* ════════════════════════
+       SIDEBAR
+    ════════════════════════ */
+    .sidebar {
+      background: var(--light);
+      padding: 20px 16px;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar h2 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text);
+      border-bottom: 1.5px solid var(--brand);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 18px;
+    }
+
+    /* Metric cards */
+    .metric-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .metric-card {
+      background: #fff;
+      border-left: 3px solid var(--brand);
+      border-radius: 6px;
+      padding: 7px 10px;
+    }
+
+    .metric-number {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: 16pt;
+      font-weight: 700;
+      color: var(--brand);
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* AI Tools list */
+    .ai-tools-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ai-tools-list li {
+      font-size: 8.5pt;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .ai-tools-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--brand);
+      border-radius: 50%;
+    }
+
+    /* Skill tags */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .skill-tag {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 8.5pt;
+      padding: 2px 7px;
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    /* What I Build */
+    .build-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .build-list li {
+      font-size: 8.5pt;
+      color: var(--text);
+    }
+
+    /* Languages */
+    .lang-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lang-item {
+      font-size: 8.5pt;
+    }
+
+    .lang-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .lang-level {
+      color: var(--muted);
+    }
+
+    /* Available badge */
+    .available-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 8.5pt;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-top: 4px;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    /* ════════════════════════
+       MAIN
+    ════════════════════════ */
+    .main {
+      padding: 20px 22px;
+    }
+
+    .main-section {
+      margin-bottom: 20px;
+    }
+
+    .main h2 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text);
+      border-bottom: 1.5px solid var(--brand);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 9pt;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Jobs */
+    .job {
+      margin-bottom: 14px;
+    }
+
+    .job-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .job-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    .date-badge {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 7.5pt;
+      padding: 2px 9px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    .job-company {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .job ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .job ul li {
+      font-size: 8.5pt;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+    }
+
+    .job ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-size: 8pt;
+      top: 0;
+    }
+
+    /* Education */
+    .edu-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .edu-degree {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .gpa-badge {
+      background: var(--brand);
+      color: #fff;
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .edu-detail {
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* Project cards */
+    .project-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brand);
+      border-radius: 6px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .project-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .project-name {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    .project-desc {
+      font-size: 8pt;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .project-link {
+      font-size: 8pt;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ════════════════════════
+       PRINT
+    ════════════════════════ */
+    @media print {
+      body { font-size: 9.5pt; }
+      @page { margin: 0.8cm 1cm; size: A4; }
+      .cv-header { padding: 18px 24px 16px; }
+      .cv-header h1 { font-size: 22pt; }
+      .main, .sidebar { padding: 16px 18px; }
+      .job { margin-bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-wrapper">
+
+    <!-- ══════════════ HEADER ══════════════ -->
+    <header class="cv-header">
+      <div class="header-left">
+        <h1>Bahaa Mohammed</h1>
+        <p class="header-title">Full-Stack Product Engineer &amp; AI-Augmented Developer</p>
+      </div>
+      <div class="header-contact">
+        Dubai, UAE<br />
+        +971 54 321 4323<br />
+        <a href="mailto:Bahaam.coding@gmail.com">Bahaam.coding@gmail.com</a><br />
+        <a href="https://ibahaaaldin.github.io" target="_blank" rel="noopener">ibahaaaldin.github.io</a><br />
+        <a href="https://linkedin.com/in/ibahaaaldin" target="_blank" rel="noopener">linkedin.com/in/ibahaaaldin</a>
+      </div>
+    </header>
+
+    <!-- ══════════════ BODY (sidebar + main) ══════════════ -->
+    <div class="cv-body">
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="sidebar">
+
+        <!-- Impact Metrics -->
+        <div class="sidebar-section">
+          <h2>Impact</h2>
+          <div class="metric-cards">
+            <div class="metric-card">
+              <div class="metric-number">1.8M AED</div>
+              <div class="metric-label">Monthly transaction volume</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">12,400+</div>
+              <div class="metric-label">Platform users</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">26+</div>
+              <div class="metric-label">Client websites delivered</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-number">3.7 GPA</div>
+              <div class="metric-label">British University in Dubai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Tools -->
+        <div class="sidebar-section">
+          <h2>AI Tools</h2>
+          <ul class="ai-tools-list">
+            <li>Claude &amp; Claude Code</li>
+            <li>ChatGPT &amp; Gemini</li>
+            <li>Grok</li>
+            <li>GitHub Copilot</li>
+            <li>Cursor</li>
+          </ul>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="sidebar-section">
+          <h2>Tech Stack</h2>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Figma</span>
+          </div>
+        </div>
+
+        <!-- What I Build -->
+        <div class="sidebar-section">
+          <h2>What I Build</h2>
+          <ul class="build-list">
+            <li>🏪 Marketplace platforms</li>
+            <li>🍽️ Restaurant websites</li>
+            <li>🤖 AI integrations</li>
+            <li>🏢 Corporate platforms</li>
+          </ul>
+        </div>
+
+        <!-- Languages -->
+        <div class="sidebar-section">
+          <h2>Languages</h2>
+          <ul class="lang-list">
+            <li class="lang-item">
+              <span class="lang-name">Arabic</span><br />
+              <span class="lang-level">Native speaker</span>
+            </li>
+            <li class="lang-item">
+              <span class="lang-name">English</span><br />
+              <span class="lang-level">Fluent — professional</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Status -->
+        <div class="sidebar-section">
+          <h2>Status</h2>
+          <span class="available-badge">&#10003; Available for hire</span>
+        </div>
+
+      </aside>
+
+      <!-- ── MAIN CONTENT ── -->
+      <main class="main">
+
+        <!-- Professional Summary -->
+        <div class="main-section">
+          <h2>Professional Summary</h2>
+          <p class="summary-text">
+            Full-Stack Developer and AI-Augmented Engineer with 3+ years shipping production marketplaces, SaaS platforms, and web applications. Delivered systems serving 12,400+ users with 1.8M AED/month in transaction volume across 26+ client deployments. Expert-level use of all major AI development tools. Fluent English and Arabic. Seeking full-time and freelance opportunities in UAE and remotely.
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="main-section">
+          <h2>Experience</h2>
+
+          <!-- Job 1 -->
+          <div class="job">
+            <div class="job-header">
+              <span class="job-title">Full-Stack Developer &amp; IT Lead</span>
+              <span class="date-badge">Jan 2024 – Present</span>
+            </div>
+            <div class="job-company">Deluxe Lubricants International · Dubai, UAE</div>
+            <ul>
+              <li>Built and deployed deluxelube.com — production platform serving customers across 50+ countries</li>
+              <li>Developed full admin CMS: product management, catalog control, customer tracking</li>
+              <li>Improved website performance by 20%; resolved 50+ technical issues monthly</li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job">
+            <div class="job-header">
+              <span class="job-title">Freelance Full-Stack Developer</span>
+              <span class="date-badge">2022 – Present</span>
+            </div>
+            <div class="job-company">Self-Employed · Dubai, UAE</div>
+            <ul>
+              <li>Shipped CarzUAE (carzuae.app) — verified UAE vehicle marketplace, 12,400+ users, dealer subscription tiers, car history reports, Next.js/React</li>
+              <li>Built Designers Puzzle (designerspuzzle.com) — multi-role marketplace, escrow payments, 2,347+ reviews (4.8/5), 1.8M AED/month transaction volume</li>
+              <li>Delivered 26+ production restaurant websites across Dubai &amp; Sharjah — bilingual EN/AR, admin dashboards, menu management systems</li>
+              <li>Uses AI tools (Claude Code, ChatGPT, Copilot) to ship full platforms in 7–10 days</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="main-section">
+          <h2>Education</h2>
+          <div class="edu-header">
+            <div class="edu-degree">
+              B.Sc. Computer Science — Artificial Intelligence
+              <span class="gpa-badge">3.7 GPA</span>
+            </div>
+            <span class="date-badge">2023 – 2027</span>
+          </div>
+          <div class="edu-detail">The British University in Dubai · Focus: AI, Machine Learning, Web Development, Database Systems</div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="main-section">
+          <h2>Key Projects</h2>
+          <div class="project-cards">
+
+            <div class="project-card">
+              <div class="project-info">
+                <div class="project-name">CarzUAE</div>
+                <div class="project-desc">UAE verified vehicle marketplace · 12,400+ users · Next.js, React, Payments</div>
+              </div>
+              <a class="project-link" href="https://carzuae.app" target="_blank" rel="noopener">carzuae.app ↗</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-info">
+                <div class="project-name">Designers Puzzle</div>
+                <div class="project-desc">Design services marketplace · 1.8M AED/month · Multi-role, Escrow, Dashboards</div>
+              </div>
+              <a class="project-link" href="https://designerspuzzle.com" target="_blank" rel="noopener">designerspuzzle.com ↗</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-info">
+                <div class="project-name">DeluxeLube Platform</div>
+                <div class="project-desc">Corporate product catalog · 50+ countries · Admin CMS</div>
+              </div>
+              <a class="project-link" href="https://deluxelube.com" target="_blank" rel="noopener">deluxelube.com ↗</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-info">
+                <div class="project-name">26+ Restaurant Websites</div>
+                <div class="project-desc">Bilingual EN/AR · Admin dashboards · Menu systems · Dubai &amp; Sharjah</div>
+              </div>
+              <a class="project-link" href="https://hamasatburger.com" target="_blank" rel="noopener">hamasatburger.com ↗</a>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div><!-- /.cv-body -->
+  </div><!-- /.cv-wrapper -->
+</body>
+</html>
