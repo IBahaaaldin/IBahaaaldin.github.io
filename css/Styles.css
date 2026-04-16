@@ -905,6 +905,11 @@ body.light .orb {
   font-weight: 800;
   letter-spacing: -0.4px;
 }
+/* Designers Puzzle back — theme-aware accent */
+body.dark  .p-back-dp { --p-accent: #e2e2e2; --p-accent-dim: rgba(255,255,255,0.07); }
+body.light .p-back-dp { --p-accent: #000000; --p-accent-dim: rgba(255,255,255,0.07); }
+body.dark  .p-back-name-dp { color: #ffffff; }
+body.light .p-back-name-dp { color: #111111; }
 .p-desc {
   font-size: 12.5px;
   color: var(--t2);
