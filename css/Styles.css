@@ -908,6 +908,23 @@ body.light .form-group textarea { background: #fff; }
 }
 @keyframes beam-rotate { to { --beam-rot: 360deg; } }
 
+/* ── Platform front logos ── */
+.p-front-logo {
+  width: 110px; height: 110px;
+  object-fit: contain;
+  position: relative; z-index: 1;
+}
+/* Designers Puzzle — black logo on transparent, invert to white + purple glow */
+.p-front-logo-dp {
+  filter: invert(1) drop-shadow(0 0 14px rgba(167,139,250,0.65));
+}
+/* DeluxeLube — original colors in a pill container so white bg doesn't jar */
+.p-front-logo-dl {
+  width: 130px; height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.55);
+}
+
 /* ── 2. METEORS hero background ── */
 .meteor-shower {
   position: absolute; inset: 0;
