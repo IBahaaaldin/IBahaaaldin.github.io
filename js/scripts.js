@@ -138,6 +138,14 @@
     revealObs.observe(el);
   });
 
+  // Fallback: force-reveal any elements still invisible after 1.2s
+  // (catches above-fold items the IntersectionObserver fires before paint)
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 1200);
+
   /* ── Count-up animation ──────────────────────────────────── */
   function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
 
