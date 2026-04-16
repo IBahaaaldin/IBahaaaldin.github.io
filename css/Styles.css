@@ -1256,13 +1256,40 @@ body.light .p-back-name-dp { color: #111111; }
 #hire {
   background: var(--bg-2);
 }
-.hire-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+
+/* ── Hire slider (infinite marquee) ── */
+.hire-slider {
+  width: 100%;
+  overflow: hidden;
+  margin: 40px 0 40px;
+  /* fade out at both edges */
+  mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
 }
+.hire-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: hire-marquee 22s linear infinite;
+}
+.hire-track:hover {
+  animation-play-state: paused;
+}
+@keyframes hire-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+[dir="rtl"] .hire-track {
+  animation-name: hire-marquee-rtl;
+}
+@keyframes hire-marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
+}
+
 .h-card {
+  width: 300px;
+  flex-shrink: 0;
   padding: 28px;
   border-radius: var(--rl);
   border: 1px solid var(--border);
@@ -1278,7 +1305,7 @@ body.light .p-back-name-dp { color: #111111; }
 .h-card:hover {
   border-color: var(--border-s);
   background: var(--surface-h);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 .h-icon {
   width: 42px;
@@ -2006,9 +2033,6 @@ body.light .hire-ctas {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .hire-grid {
-    grid-template-columns: 1fr 1fr;
-  }
   .resume-layout {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2099,9 +2123,6 @@ body.light .hire-ctas {
   .cw-stat {
     width: calc(50% - 8px);
     padding: 0;
-  }
-  .hire-grid {
-    grid-template-columns: 1fr;
   }
 
   .hire-ctas {
