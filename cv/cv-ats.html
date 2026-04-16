@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bahaa Mohammed – CV</title>
+  <title>Bahaa Mohammed - CV (ATS)</title>
   <style>
     * {
       box-sizing: border-box;
@@ -27,10 +27,17 @@
     }
 
     /* Header */
+    .header h1,
     .header-name {
       font-size: 20pt;
       font-weight: bold;
       margin-bottom: 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-transform: none;
+      border: none;
+      padding: 0;
     }
 
     .header-title {
@@ -78,6 +85,11 @@
       font-weight: normal;
       white-space: nowrap;
       margin-left: 16px;
+    }
+
+    .job-company {
+      font-style: italic;
+      margin-bottom: 4px;
     }
 
     /* Education */
@@ -136,6 +148,11 @@
       margin-bottom: 4px;
     }
 
+    /* Languages */
+    .lang-item {
+      margin-bottom: 3px;
+    }
+
     @media print {
       @page {
         size: A4;
@@ -144,7 +161,8 @@
 
       body {
         max-width: 100%;
-        padding: 0;
+        padding: 18px 24px;
+        font-size: 10.5pt;
       }
 
       h2 {
@@ -169,7 +187,7 @@
 <body>
 
   <!-- ===== HEADER ===== -->
-  <div class="header-name">Bahaa Mohammed</div>
+  <h1 class="header-name">Bahaa Mohammed</h1>
   <div class="header-title">Full-Stack Product Engineer &amp; AI-Augmented Developer</div>
   <div class="header-contact">
     Dubai, UAE &nbsp;|&nbsp;
@@ -200,9 +218,10 @@
 
   <div class="job">
     <div class="job-header">
-      <span class="job-title">Full-Stack Developer &amp; IT Lead — Deluxe Lubricants International · Dubai, UAE</span>
+      <span class="job-title">Full-Stack Developer &amp; IT Lead</span>
       <span class="job-date">Jan 2024 – Present</span>
     </div>
+    <div class="job-company">Deluxe Lubricants International · Dubai, UAE</div>
     <ul>
       <li>Built and deployed <a href="https://deluxelube.com">deluxelube.com</a> — a production product platform serving customers across 50+ countries</li>
       <li>Developed full admin CMS enabling product management, catalog control, and customer tracking</li>
@@ -212,9 +231,10 @@
 
   <div class="job">
     <div class="job-header">
-      <span class="job-title">Freelance Full-Stack Developer — Self-Employed · Dubai, UAE</span>
+      <span class="job-title">Freelance Full-Stack Developer</span>
       <span class="job-date">2022 – Present</span>
     </div>
+    <div class="job-company">Self-Employed · Dubai, UAE</div>
     <ul>
       <li>Designed and shipped CarzUAE (<a href="https://carzuae.app/en">carzuae.app</a>) — verified UAE vehicle marketplace with 12,400+ users, dealer subscription tiers, car history reports, and WhatsApp integration, built on Next.js/React</li>
       <li>Built Designers Puzzle (<a href="https://designerspuzzle.com">designerspuzzle.com</a>) — multi-role design services marketplace with escrow payments, 2,347+ verified reviews (4.8/5 rating), and 1.8M AED/month transaction volume</li>
@@ -246,10 +266,8 @@
 
   <!-- ===== LANGUAGES ===== -->
   <h2>Languages</h2>
-  <ul>
-    <li>Arabic — Native</li>
-    <li>English — Fluent (professional)</li>
-  </ul>
+  <div class="lang-item"><strong>Arabic</strong> — Native</div>
+  <div class="lang-item"><strong>English</strong> — Fluent (professional)</div>
 
 </body>
 </html>
