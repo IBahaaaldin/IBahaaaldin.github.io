@@ -484,7 +484,7 @@ body.light .orb { opacity: 0.08; }
 .p-flip-hint {
   position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
   font-family: var(--fm); font-size: 9.5px; letter-spacing: 1px;
-  text-transform: uppercase; color: rgba(255,255,255,0.22);
+  text-transform: uppercase; color: rgba(255,255,255,0.65);
   white-space: nowrap; z-index: 1;
   animation: hint-pulse 2.4s ease-in-out infinite;
 }
@@ -925,7 +925,7 @@ body.light .form-group textarea { background: #fff; }
 
 /* ── Light card front (white/gold CarzUAE) — text overrides ── */
 .p-front-light .p-tagline   { color: rgba(0,0,0,0.42); }
-.p-front-light .p-flip-hint { color: rgba(0,0,0,0.20); }
+.p-front-light .p-flip-hint { color: rgba(0,0,0,0.55); }
 .p-front-light .live-badge  {
   background: rgba(0,0,0,0.06);
   border-color: rgba(0,0,0,0.10);
