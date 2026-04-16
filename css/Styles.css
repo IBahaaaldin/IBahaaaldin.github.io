@@ -920,7 +920,7 @@ body.light .form-group textarea { background: #fff; }
 }
 /* CarzUAE — black logo shows naturally on white/gold bg, gold glow */
 .p-front-logo-carz {
-  filter: drop-shadow(0 0 12px rgba(217,119,6,0.45));
+  filter: drop-shadow(0 0 14px rgba(212,175,55,0.55));
 }
 
 /* ── Light card front (white/gold CarzUAE) — text overrides ── */
