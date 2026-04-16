@@ -706,7 +706,7 @@ body.light .orb { opacity: 0.08; }
 .h-card p  { font-size: 14px; color: var(--t2); line-height: 1.65; }
 
 
-.hire-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+/* .hire-ctas — defined in 21ST.DEV EFFECTS section */
 .cta-wa {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 28px; border-radius: var(--r);
@@ -867,6 +867,163 @@ body.light .form-group textarea { background: #fff; }
   flex-wrap: wrap; gap: 10px;
   font-size: 13px; color: var(--t3);
 }
+
+/* ================================================================
+   21ST.DEV EFFECTS
+   ================================================================ */
+
+/* @property declarations — needed for animated CSS angle variables */
+@property --beam-rot {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --neon-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* ── 1. BORDER BEAM on flip card fronts ── */
+.p-flip-front::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: var(--rl);
+  padding: 1.5px;
+  background: conic-gradient(from var(--beam-rot),
+    transparent 70%,
+    var(--beam-c, #38BDF8) 88%,
+    rgba(255,255,255,0.9) 92%,
+    var(--beam-c, #38BDF8) 96%,
+    transparent
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: beam-rotate 3.5s linear infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+@keyframes beam-rotate { to { --beam-rot: 360deg; } }
+
+/* ── 2. METEORS hero background ── */
+.meteor-shower {
+  position: absolute; inset: 0;
+  overflow: hidden; pointer-events: none; z-index: 0;
+}
+.meteor {
+  position: absolute;
+  top: -60px;
+  left: var(--l, 50%);
+  width: 1px; height: 0;
+  background: linear-gradient(to bottom,
+    rgba(56,189,248,0) 0%,
+    rgba(56,189,248,0.85) 50%,
+    rgba(56,189,248,0) 100%
+  );
+  border-radius: 100px;
+  transform: rotate(215deg);
+  transform-origin: top center;
+  animation: meteor-fall var(--d, 6s) var(--delay, 0s) linear infinite;
+  opacity: 0;
+}
+.meteor::after {
+  content: '';
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 2.5px; height: 2.5px; border-radius: 50%;
+  background: rgba(56,189,248,0.95);
+  box-shadow: 0 0 5px 2px rgba(56,189,248,0.35);
+}
+@keyframes meteor-fall {
+  0%   { opacity: 0;   height: 0;    transform: rotate(215deg) translateY(0); }
+  4%   { opacity: 1;   height: 90px; }
+  78%  { opacity: 0.5; height: 90px; }
+  100% { opacity: 0;   height: 90px; transform: rotate(215deg) translateY(1100px); }
+}
+body.light .meteor { opacity: 0 !important; } /* hide on light mode */
+
+/* ── 3. SHINY TEXT ── */
+.shiny {
+  background: linear-gradient(90deg,
+    var(--t1) 0%, var(--t1) 35%,
+    rgba(255,255,255,0.96) 50%,
+    var(--t1) 65%, var(--t1) 100%
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 6s linear infinite;
+}
+.shiny-blue {
+  background: linear-gradient(90deg,
+    var(--blue) 0%, var(--blue) 32%,
+    rgba(180,235,255,0.98) 50%,
+    var(--blue) 68%, var(--blue) 100%
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 4.5s linear infinite;
+}
+.shiny-gold {
+  background: linear-gradient(90deg,
+    var(--gold) 0%, var(--gold) 32%,
+    rgba(255,253,186,1) 50%,
+    var(--gold) 68%, var(--gold) 100%
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 3.5s linear infinite;
+}
+@keyframes text-shine {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+/* Prevent shine flash in light mode — keep colors, remove shimmer */
+body.light .shiny      { animation: none; -webkit-text-fill-color: var(--t1); background: none; }
+body.light .shiny-blue { animation: none; -webkit-text-fill-color: var(--blue); background: none; }
+body.light .shiny-gold { animation: none; -webkit-text-fill-color: var(--gold); background: none; }
+
+/* ── 4. WORD REVEAL for section titles ── */
+.section-title .wrd {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.section-title.title-revealed .wrd {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 5. NEON GRADIENT BORDER on hire CTAs ── */
+.hire-ctas {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  margin-top: 40px; padding: 28px 32px;
+  border-radius: var(--rl);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    conic-gradient(from var(--neon-angle),
+      var(--blue) 0%, var(--gold) 33%, #a78bfa 66%, var(--blue) 100%
+    ) border-box;
+  animation: neon-spin 5s linear infinite;
+}
+body.light .hire-ctas {
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    conic-gradient(from var(--neon-angle),
+      var(--blue) 0%, var(--gold) 33%, #a78bfa 66%, var(--blue) 100%
+    ) border-box;
+}
+@keyframes neon-spin { to { --neon-angle: 360deg; } }
 
 /* ================================================================
    RESPONSIVE

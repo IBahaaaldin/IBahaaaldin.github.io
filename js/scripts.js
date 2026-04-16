@@ -39,6 +39,17 @@
   const langLabel = document.getElementById('lang-label'); // <span> inside lang-btn
   let currentLang = localStorage.getItem('bm-lang') || 'en';
 
+  /* ── Word reveal helper (used by applyLang + titleObs) ── */
+  function wrapTitleWords(el) {
+    let wi = 0;
+    // Wrap text-node words while preserving HTML tags (<br> etc.)
+    el.innerHTML = el.innerHTML.replace(/([^\s<>]+)/g, (word) => {
+      const delay = (wi * 0.07).toFixed(2);
+      wi++;
+      return `<span class="wrd" style="transition-delay:${delay}s">${word}</span>`;
+    });
+  }
+
   function applyLang(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
@@ -54,6 +65,9 @@
     document.querySelectorAll('[data-placeholder-en]').forEach(el => {
       el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.placeholder;
     });
+
+    // Re-wrap words on already-revealed section titles after language swap
+    document.querySelectorAll('.section-title.title-revealed').forEach(wrapTitleWords);
 
     localStorage.setItem('bm-lang', lang);
   }
@@ -145,6 +159,18 @@
       el.classList.add('visible');
     });
   }, 1200);
+
+  /* ── Section title word reveal ───────────────────────────── */
+  const titleObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      wrapTitleWords(e.target);
+      e.target.classList.add('title-revealed');
+      titleObs.unobserve(e.target);
+    });
+  }, { threshold: 0.35 });
+
+  document.querySelectorAll('.section-title').forEach(el => titleObs.observe(el));
 
   /* ── Count-up animation ──────────────────────────────────── */
   function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
