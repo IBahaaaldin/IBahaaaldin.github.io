@@ -1,363 +1,221 @@
-// Theme Toggle Functionality
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = themeToggle.querySelector("i");
+/* ============================================================
+   BAHAA ALDIN — Portfolio Scripts
+   Theme · Language · Nav · Reveal · Count-up · Form
+   ============================================================ */
 
-// Check for saved theme preference or respect OS preference
-const savedTheme =
-  localStorage.getItem("theme") ||
-  (window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light");
+(function () {
+  'use strict';
 
-if (savedTheme === "dark") {
-  document.documentElement.setAttribute("data-theme", "dark");
-  themeIcon.classList.remove("fa-moon");
-  themeIcon.classList.add("fa-sun");
-}
+  /* ── Year ────────────────────────────────────────────────── */
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-themeToggle.addEventListener("click", () => {
-  const currentTheme = document.documentElement.getAttribute("data-theme");
+  /* ── Theme ───────────────────────────────────────────────── */
+  const body      = document.body;
+  const themeBtn  = document.getElementById('theme-btn');
+  const themeIcon = document.getElementById('theme-icon'); // <i> inside theme-btn
 
-  if (currentTheme === "dark") {
-    document.documentElement.removeAttribute("data-theme");
-    themeIcon.classList.remove("fa-sun");
-    themeIcon.classList.add("fa-moon");
-    localStorage.setItem("theme", "light");
-  } else {
-    document.documentElement.setAttribute("data-theme", "dark");
-    themeIcon.classList.remove("fa-moon");
-    themeIcon.classList.add("fa-sun");
-    localStorage.setItem("theme", "dark");
-  }
-});
-
-// Language Selector Functionality
-const languageBtn = document.getElementById("language-btn");
-const languageOptions = document.getElementById("language-options");
-const languageText = languageBtn.querySelector("span");
-
-languageBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  languageOptions.classList.toggle("show");
-});
-
-// Close language dropdown when clicking outside
-document.addEventListener("click", (e) => {
-  if (!languageBtn.contains(e.target) && !languageOptions.contains(e.target)) {
-    languageOptions.classList.remove("show");
-  }
-});
-
-const languageOptionsList = document.querySelectorAll(".language-option");
-let currentLanguage = localStorage.getItem("language") || "en";
-
-// Set initial language
-updateLanguage(currentLanguage);
-
-languageOptionsList.forEach((option) => {
-  option.addEventListener("click", () => {
-    const selectedLang = option.getAttribute("data-lang");
-    currentLanguage = selectedLang;
-    localStorage.setItem("language", selectedLang);
-    updateLanguage(selectedLang);
-    languageOptions.classList.remove("show");
-    languageText.textContent = selectedLang.toUpperCase();
-  });
-});
-
-function updateLanguage(lang) {
-  document.querySelectorAll("[data-en], [data-ar]").forEach((element) => {
-    if (element.hasAttribute(`data-${lang}`)) {
-      element.textContent = element.getAttribute(`data-${lang}`);
+  function setTheme(t) {
+    body.classList.remove('dark', 'light');
+    body.classList.add(t);
+    if (themeIcon) {
+      themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
-  });
-
-  // Update HTML direction for RTL languages
-  if (lang === "ar") {
-    document.documentElement.setAttribute("dir", "rtl");
-    document.documentElement.setAttribute("lang", "ar");
-  } else {
-    document.documentElement.setAttribute("dir", "ltr");
-    document.documentElement.setAttribute("lang", "en");
+    localStorage.setItem('bm-theme', t);
   }
 
-  languageText.textContent = lang.toUpperCase();
-}
+  const savedTheme = localStorage.getItem('bm-theme') ||
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  setTheme(savedTheme);
 
-// Mobile Menu Toggle
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      setTheme(body.classList.contains('dark') ? 'light' : 'dark');
+    });
+  }
 
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  hamburger.classList.toggle("active");
-});
+  /* ── Language ────────────────────────────────────────────── */
+  const langBtn   = document.getElementById('lang-btn');
+  const langLabel = document.getElementById('lang-label'); // <span> inside lang-btn
+  let currentLang = localStorage.getItem('bm-lang') || 'en';
 
-// 3D effect for cards on mousemove
-const floatingCards = document.querySelectorAll(".floating-card");
+  function applyLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+    if (langLabel) langLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
 
-floatingCards.forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-  });
+    // Update all bilingual text elements
+    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
 
-  card.addEventListener("mouseenter", () => {
-    card.style.transition = "none";
-  });
+    // Update placeholders if any
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.placeholder;
+    });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transition = "transform 0.5s ease";
-    card.style.transform = `rotateZ(${card.style.getPropertyValue(
-      "--rotate"
-    )})`;
-  });
-});
+    localStorage.setItem('bm-lang', lang);
+  }
 
-// Add intersection observer for animation
-document.addEventListener("DOMContentLoaded", function () {
-  const aboutSection = document.querySelector(".about-section");
+  applyLang(currentLang);
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-in");
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+  if (langBtn) {
+    langBtn.addEventListener('click', () => {
+      applyLang(currentLang === 'en' ? 'ar' : 'en');
+    });
+  }
 
-  observer.observe(aboutSection);
-});
+  /* ── Mobile nav ──────────────────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const navMenu   = document.getElementById('nav-menu');
 
-// Add intersection observer for animation
-document.addEventListener("DOMContentLoaded", function () {
-  const projectCards = document.querySelectorAll(".project-card");
+  function closeMenu() {
+    if (!navMenu) return;
+    navMenu.classList.remove('open');
+    body.style.overflow = '';
+    if (hamburger) {
+      const spans = hamburger.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity   = '';
+      spans[2].style.transform = '';
+    }
+  }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  projectCards.forEach((card, index) => {
-    card.style.opacity = 0;
-    card.style.transform = "translateY(50px)";
-    card.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-      index * 0.1
-    }s`;
-
-    observer.observe(card);
-  });
-});
-
-// Add intersection observer for animation
-document.addEventListener("DOMContentLoaded", function () {
-  const skillCards = document.querySelectorAll(".skill-card");
-  const techItems = document.querySelectorAll(".tech-item");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  // Animate skill cards
-  skillCards.forEach((card, index) => {
-    card.style.opacity = 0;
-    card.style.transform = "translateY(30px)";
-    card.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-      index * 0.1
-    }s`;
-
-    observer.observe(card);
-  });
-
-  // Animate tech items
-  techItems.forEach((item, index) => {
-    item.style.opacity = 0;
-    item.style.transform = "translateY(20px)";
-    item.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-      index * 0.05 + 0.3
-    }s`;
-
-    observer.observe(item);
-  });
-});
-
-// Sticky download card functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const downloadCard = document.getElementById("downloadCard");
-  const downloadColumn = document.querySelector(".download-column");
-  const resumeSection = document.querySelector(".resume-section");
-
-  if (downloadCard && downloadColumn && resumeSection) {
-    const cardHeight = downloadCard.offsetHeight;
-    const columnHeight = downloadColumn.offsetHeight;
-    const sectionHeight = resumeSection.offsetHeight;
-
-    // Calculate when to switch from sticky to absolute positioning
-    const switchPoint = sectionHeight - cardHeight - 40; // 40px padding from bottom
-
-    function updateCardPosition() {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const sectionTop = resumeSection.offsetTop;
-      const sectionBottom = sectionTop + sectionHeight;
-      const currentPosition = scrollTop - sectionTop;
-
-      if (currentPosition > switchPoint) {
-        downloadCard.classList.add("sticky-bottom");
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      body.style.overflow = isOpen ? 'hidden' : '';
+      const spans = hamburger.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity   = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
       } else {
-        downloadCard.classList.remove("sticky-bottom");
+        spans[0].style.transform = '';
+        spans[1].style.opacity   = '';
+        spans[2].style.transform = '';
       }
+    });
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+
+  /* ── Scrolled nav ────────────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  function onScroll() {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveLink();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Active nav link ─────────────────────────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#nav-menu a[href^="#"]');
+
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  /* ── Reveal on scroll ────────────────────────────────────── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const delay = parseFloat(e.target.dataset.delay || 0);
+      setTimeout(() => e.target.classList.add('visible'), delay * 1000);
+      revealObs.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    if (!el.dataset.delay) el.dataset.delay = (i % 5) * 0.07;
+    revealObs.observe(el);
+  });
+
+  /* ── Count-up animation ──────────────────────────────────── */
+  function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animateCount(el) {
+    const target    = parseFloat(el.dataset.target);
+    const isDecimal = String(target).includes('.');
+    const dur       = 1800;
+    const start     = performance.now();
+
+    function frame(now) {
+      const progress = Math.min((now - start) / dur, 1);
+      const val = target * easeOutQuart(progress);
+      el.textContent = isDecimal
+        ? val.toFixed(1)
+        : Math.round(val).toLocaleString();
+      if (progress < 1) requestAnimationFrame(frame);
+      else el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
     }
-
-    // Initial update
-    updateCardPosition();
-
-    // Update on scroll
-    window.addEventListener("scroll", updateCardPosition);
-    window.addEventListener("resize", updateCardPosition);
+    requestAnimationFrame(frame);
   }
 
-  // Animation for timeline items
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateX(0)";
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  timelineItems.forEach((item, index) => {
-    item.style.opacity = 0;
-    item.style.transform = "translateX(30px)";
-    item.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-      index * 0.1
-    }s`;
-
-    observer.observe(item);
-  });
-});
-
-// GitHub Activity Animation
-document.addEventListener("DOMContentLoaded", function () {
-  // Animate stats counting
-  function animateValue(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const value = Math.floor(progress * (end - start) + start);
-      element.textContent = value.toLocaleString();
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
+  const metricsWrap = document.querySelector('.hero-metrics');
+  if (metricsWrap) {
+    let counted = false;
+    const metricObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.metric-n[data-target]').forEach(animateCount);
+        metricObs.disconnect();
       }
-    };
-    window.requestAnimationFrame(step);
+    }, { threshold: 0.4 });
+    metricObs.observe(metricsWrap);
   }
 
-  // Start counting animation when section is in view
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Animate stats
-          animateValue(document.getElementById("repos-count"), 0, 24, 2000);
-          animateValue(document.getElementById("stars-count"), 0, 47, 2000);
-          animateValue(document.getElementById("commits-count"), 0, 327, 2000);
-          animateValue(document.getElementById("followers-count"), 0, 18, 2000);
+  /* ── Contact form ────────────────────────────────────────── */
+  const form = document.getElementById('contact-form');
 
-          // Animate activity items
-          const activityItems = document.querySelectorAll(".activity-item");
-          activityItems.forEach((item, index) => {
-            item.style.opacity = 0;
-            item.style.transform = "translateX(-20px)";
-            item.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-              index * 0.2
-            }s`;
+  if (form) {
+    // Insert status element after form
+    const statusEl = document.createElement('div');
+    statusEl.className = 'form-status';
+    form.after(statusEl);
 
-            setTimeout(() => {
-              item.style.opacity = 1;
-              item.style.transform = "translateX(0)";
-            }, 100 + index * 200);
-          });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      const originalHTML = btn.innerHTML;
 
-          // Animate repo cards
-          const repoCards = document.querySelectorAll(".repo-card");
-          repoCards.forEach((card, index) => {
-            card.style.opacity = 0;
-            card.style.transform = "translateY(20px)";
-            card.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-              index * 0.2 + 0.5
-            }s`;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp;Sending…';
+      statusEl.className = 'form-status';
 
-            setTimeout(() => {
-              card.style.opacity = 1;
-              card.style.transform = "translateY(0)";
-            }, 500 + index * 200);
-          });
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
 
-          observer.unobserve(entry.target);
+        if (res.ok) {
+          form.reset();
+          statusEl.className = 'form-status success';
+          statusEl.textContent = currentLang === 'ar'
+            ? 'تم إرسال رسالتك! سأتواصل معك قريباً.'
+            : "Message sent! I'll get back to you soon.";
+        } else {
+          throw new Error('server');
         }
-      });
-    },
-    { threshold: 0.3 }
-  );
+      } catch {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = currentLang === 'ar'
+          ? 'حدث خطأ. يرجى المحاولة مجدداً أو التواصل عبر واتساب.'
+          : 'Something went wrong. Reach me via WhatsApp instead.';
+      } finally {
+        btn.disabled  = false;
+        btn.innerHTML = originalHTML;
+      }
+    });
+  }
 
-  observer.observe(document.querySelector(".github-section"));
-});
-
-// Set current year for copyright
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-// Initialize footer animations
-document.addEventListener("DOMContentLoaded", function () {
-  const footerElements = document.querySelectorAll(
-    ".footer-links li, .footer-contact .contact-item"
-  );
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  footerElements.forEach((element, index) => {
-    element.style.opacity = 0;
-    element.style.transform = "translateY(20px)";
-    element.style.transition = `opacity 0.5s ease, transform 0.5s ease ${
-      index * 0.1
-    }s`;
-
-    observer.observe(element);
-  });
-});
+})();
