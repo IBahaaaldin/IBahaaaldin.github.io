@@ -3048,3 +3048,440 @@ nav {
     justify-content: center;
   }
 }
+
+/* ===== HERO UPDATES ===== */
+.hero-badge {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.hero-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.hero-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.metric-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.hero-location {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+/* ===== PLATFORMS SECTION ===== */
+.platforms-section {
+  padding: 80px 0;
+}
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.platform-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,162,255,0.15);
+}
+
+.platform-header {
+  padding: 28px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90px;
+}
+
+.platform-logo {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.platform-live-badge {
+  background: rgba(0,200,100,0.9);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.platform-body {
+  padding: 24px;
+}
+
+.platform-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.platform-metrics {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.platform-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.pm-label {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.platform-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.stack-tag {
+  background: rgba(0,162,255,0.1);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.platform-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.platform-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== CLIENT WORK SECTION ===== */
+.client-work-section {
+  padding: 80px 0;
+  background: rgba(0,162,255,0.03);
+}
+
+.client-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.client-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-4px);
+}
+
+.client-card-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-card-body {
+  padding: 20px;
+}
+
+.client-card-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.client-card-body p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.client-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.client-tag {
+  background: rgba(0,162,255,0.08);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.client-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.client-link:hover {
+  text-decoration: underline;
+}
+
+.client-logo-wall {
+  margin-top: 56px;
+}
+
+.logo-wall-label {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.logo-wall-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo-wall-item {
+  background: var(--card-bg);
+  border: 1px solid rgba(0,162,255,0.15);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ===== AI SUPERPOWER SECTION ===== */
+.ai-section {
+  padding: 80px 0;
+}
+
+.ai-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  margin-bottom: 36px;
+}
+
+.ai-tool-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease;
+}
+
+.ai-tool-card:hover {
+  transform: translateY(-4px);
+}
+
+.ai-tool-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.ai-tool-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ai-tool-desc {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.ai-result-box {
+  background: rgba(0,162,255,0.07);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px 28px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ai-result-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: italic;
+}
+
+[data-theme="dark"] .ai-result-box {
+  background: rgba(0,162,255,0.1);
+}
+
+/* ===== HIRE ME SECTION ===== */
+.hire-section {
+  padding: 80px 0;
+  background: rgba(0,162,255,0.03);
+}
+
+.hire-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.hire-service-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hire-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,162,255,0.12);
+}
+
+.hire-service-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hire-service-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hire-service-card p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.hire-free-offer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 16px;
+  background: rgba(0,200,100,0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(0,200,100,0.2);
+}
+
+.hire-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.hire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hire-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.hire-btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.hire-btn-email {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===== RESPONSIVE (new sections) ===== */
+@media (max-width: 768px) {
+  .hero-metrics {
+    gap: 16px;
+  }
+  .metric-num {
+    font-size: 22px;
+  }
+  .platforms-grid,
+  .client-featured,
+  .ai-tools-grid,
+  .hire-services {
+    grid-template-columns: 1fr;
+  }
+  .hire-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hire-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
