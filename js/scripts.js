@@ -225,10 +225,11 @@
       statusEl.className = 'form-status';
 
       try {
+        const data = Object.fromEntries(new FormData(form).entries());
         const res = await fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          body: JSON.stringify(data),
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
         });
 
         if (res.ok) {
