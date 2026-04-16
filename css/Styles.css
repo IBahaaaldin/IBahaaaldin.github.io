@@ -914,14 +914,24 @@ body.light .form-group textarea { background: #fff; }
   object-fit: contain;
   position: relative; z-index: 1;
 }
-/* Designers Puzzle — avif with transparent bg, purple glow */
+/* Designers Puzzle — force pure white on black bg + white glow */
 .p-front-logo-dp {
-  filter: drop-shadow(0 0 14px rgba(167,139,250,0.65));
+  filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255,255,255,0.45));
 }
-/* CarzUAE — black logo on transparent, invert to white + blue glow */
+/* CarzUAE — black logo shows naturally on white/gold bg, gold glow */
 .p-front-logo-carz {
-  filter: invert(1) drop-shadow(0 0 16px rgba(56,189,248,0.6));
+  filter: drop-shadow(0 0 12px rgba(217,119,6,0.45));
 }
+
+/* ── Light card front (white/gold CarzUAE) — text overrides ── */
+.p-front-light .p-tagline   { color: rgba(0,0,0,0.42); }
+.p-front-light .p-flip-hint { color: rgba(0,0,0,0.20); }
+.p-front-light .live-badge  {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.10);
+  color: #15803d;
+}
+.p-front-light .live-dot { background: #16a34a; }
 /* DeluxeLube — original colors in a pill container so white bg doesn't jar */
 .p-front-logo-dl {
   width: 130px; height: auto;
