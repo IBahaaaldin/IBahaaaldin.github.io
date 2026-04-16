@@ -15,12 +15,15 @@
   const themeBtn  = document.getElementById('theme-btn');
   const themeIcon = document.getElementById('theme-icon'); // <i> inside theme-btn
 
+  const themeIconMobile = document.getElementById('theme-icon-mobile');
+  const themeBtnMobile  = document.getElementById('theme-btn-mobile');
+
   function setTheme(t) {
     body.classList.remove('dark', 'light');
     body.classList.add(t);
-    if (themeIcon) {
-      themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
+    const icon = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    if (themeIcon)       themeIcon.className       = icon;
+    if (themeIconMobile) themeIconMobile.className = icon;
     localStorage.setItem('bm-theme', t);
   }
 
@@ -31,6 +34,12 @@
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
       setTheme(body.classList.contains('dark') ? 'light' : 'dark');
+    });
+  }
+  if (themeBtnMobile) {
+    themeBtnMobile.addEventListener('click', () => {
+      setTheme(body.classList.contains('dark') ? 'light' : 'dark');
+      closeMenu();
     });
   }
 
@@ -228,6 +237,23 @@
         `mailto:bahaam.coding@gmail.com` +
         `?subject=${encodeURIComponent(subject)}` +
         `&body=${encodeURIComponent(body)}`;
+    });
+  }
+
+  /* ── Touch: tap-to-flip cards + "Tap to explore" hint ───────── */
+  if (window.matchMedia('(hover: none)').matches) {
+    // Update hint text for touch devices
+    document.querySelectorAll('.p-flip-hint').forEach(el => {
+      el.setAttribute('data-en', 'Tap to explore');
+      el.setAttribute('data-ar', 'اضغط لاستكشاف');
+    });
+    applyLang(currentLang);
+
+    // Tap-to-flip
+    document.querySelectorAll('.p-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
     });
   }
 
