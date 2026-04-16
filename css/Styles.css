@@ -918,6 +918,10 @@ body.light .form-group textarea { background: #fff; }
 .p-front-logo-dp {
   filter: invert(1) drop-shadow(0 0 14px rgba(167,139,250,0.65));
 }
+/* CarzUAE — transparent bg logo, blue glow */
+.p-front-logo-carz {
+  filter: drop-shadow(0 0 16px rgba(56,189,248,0.55));
+}
 /* DeluxeLube — original colors in a pill container so white bg doesn't jar */
 .p-front-logo-dl {
   width: 130px; height: auto;
