@@ -10,11 +10,13 @@
   <style>
     /* ── CSS Variables ── */
     :root {
-      --brand:  #00a2ff;
-      --text:   #1a1a1a;
-      --muted:  #666;
-      --light:  #f5f8ff;
-      --border: #e0e8f0;
+      --brand:         #00a2ff;
+      --text:          #1a1a1a;
+      --muted:         #666;
+      --light:         #f5f8ff;
+      --border:        #e0e8f0;
+      --white:         #ffffff;
+      --contact-muted: #ccc;
     }
 
     /* ── Reset ── */
@@ -24,7 +26,7 @@
       font-family: 'Inter', Arial, sans-serif;
       font-size: 9.5pt;
       color: var(--text);
-      background: #fff;
+      background: var(--white);
       line-height: 1.45;
     }
 
@@ -42,8 +44,8 @@
     ════════════════════════ */
     .cv-header {
       grid-column: 1 / -1;
-      background: #1a1a1a;
-      color: #fff;
+      background: var(--text);
+      color: var(--white);
       padding: 22px 28px 18px;
       display: flex;
       align-items: flex-start;
@@ -55,7 +57,7 @@
       font-family: 'Space Grotesk', Arial, sans-serif;
       font-size: 26pt;
       font-weight: 700;
-      color: #fff;
+      color: var(--white);
       line-height: 1.1;
       letter-spacing: -0.3px;
     }
@@ -71,13 +73,13 @@
     .header-contact {
       text-align: right;
       font-size: 8pt;
-      color: #ccc;
+      color: var(--contact-muted);
       line-height: 1.7;
       flex-shrink: 0;
     }
 
     .header-contact a {
-      color: #ccc;
+      color: var(--contact-muted);
       text-decoration: none;
     }
 
@@ -125,7 +127,7 @@
     }
 
     .metric-card {
-      background: #fff;
+      background: var(--white);
       border-left: 3px solid var(--brand);
       border-radius: 6px;
       padding: 7px 10px;
@@ -181,7 +183,7 @@
     }
 
     .skill-tag {
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 4px;
       font-size: 8.5pt;
@@ -230,7 +232,7 @@
     .available-badge {
       display: inline-block;
       background: var(--brand);
-      color: #fff;
+      color: var(--white);
       font-size: 8.5pt;
       font-weight: 600;
       padding: 5px 14px;
@@ -354,7 +356,7 @@
 
     .gpa-badge {
       background: var(--brand);
-      color: #fff;
+      color: var(--white);
       font-size: 7.5pt;
       font-weight: 600;
       padding: 2px 8px;
@@ -421,12 +423,17 @@
        PRINT
     ════════════════════════ */
     @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       body { font-size: 9.5pt; }
       @page { margin: 0.8cm 1cm; size: A4; }
       .cv-header { padding: 18px 24px 16px; }
       .cv-header h1 { font-size: 22pt; }
       .main, .sidebar { padding: 16px 18px; }
       .job { margin-bottom: 12px; }
+      .sidebar { overflow: hidden; }
     }
   </style>
 </head>
