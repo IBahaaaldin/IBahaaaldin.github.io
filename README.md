@@ -1,6 +1,5 @@
 # IBahaaaldin Portfolio Website
 
-![Portfolio Banner](assets/portfolio_banner.jpeg)
 ![Website Preview](assets/Website_preview.jpg)
 
 ![HTML](https://img.shields.io/badge/Built%20With-HTML%2FCSS%20%2B%20JS-blue)
